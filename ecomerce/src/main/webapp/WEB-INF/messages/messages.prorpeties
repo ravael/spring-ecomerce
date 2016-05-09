@@ -1,0 +1,9 @@
+field.required = Campo obrigatorio
+field.required.product.title = Titulo obirgatorio
+typeMismatch.produc.pages = Digite um numero, exemplo "100"
+typeMismatch.java.lang.Integer = Digite apenas um numero
+typeMismatch.int = Digite apenas um numero
+typeMismatch = O tipo esta errado
+NotBlank.java.lang.Sring = Campo obrigatorio
+NotBlank.product.title = Titulo obrigatorio
+Min.product.pages = O numero minimo de paginas e {1}
