@@ -11,7 +11,7 @@
 </head>
 <body>
 	
-	<form:form method="post" action="/ecomerce/produtos" commandName="product" enctype="multipart/form-data">
+	<form:form method="POST" action="/ecomerce/produtos" commandName="product"  enctype="multipart/form-data">
 		<div>
 			<label for="title">Titulo</label>
 			<form:input path="title"/>
@@ -22,16 +22,10 @@
 			<form:textarea rows="10" cols="20" path="description"/>
 			<form:errors path="description"/>
 		</div>
- 		<div>
- 			<label for="releaseDate">Data de lancamento</label> 
- 			<form:input type="date" path="releaseDate"/> 
-			<form:errors path="releaseDate"/> 
-		</div> 
- 		<div> 
+		<div> 
  			<label for="summaryPath">Sumario do livro</label> 
-			<form:input path="summaryPath" type="file"/> 
-			<form:errors path="summaryPath"/> 
-		</div> 
+			<input name="summaryPath" type="file"/> 
+		</div>
 		<div>
 			<label for="pages">Numero de paginas</label>
 			<form:input path="pages" type="text"/>
@@ -41,8 +35,8 @@
 			<c:forEach items="${types}" var="bookType" varStatus="status">
 				<div>
 					<label for="price_${bookType}">${bookType}</label>
-					<form:input type="text" path="prices[${status.index}].value" id="price_${bookType}"/>
-					<form:input type="hidden" path="prices[${status.index}].bookType" value="${bookType}" />
+					<input type="text" name="prices[${status.index}].value" id="price_${bookType}"/>
+					<input type="hidden" name="prices[${status.index}].bookType" value="${bookType}" />
 				</div>
 			</c:forEach>
 		</div>
@@ -50,8 +44,6 @@
 			<input type="submit" value="Enviar">
 		</div>
 	</form:form>
-	<spring:hasBindErrors name="product">
 
-	</spring:hasBindErrors>
 </body>
 </html>
