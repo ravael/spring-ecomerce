@@ -19,10 +19,11 @@ public class SpringConfiguration extends AbstractAnnotationConfigDispatcherServl
 	}
 
 	@Override
-	protected String[] getServletMappings() {
+	protected String[] getServletMappings() { 	
 		return new String[] {"/"};
 	}
-
+	
+	@Override
 	protected void customizeRegistration(Dynamic registration) {
 		registration.setMultipartConfig(new MultipartConfigElement(""));
 		

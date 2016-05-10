@@ -26,10 +26,11 @@ public class ProductsController {
 	private FileSaver fileSaver;
 	
 	@RequestMapping(method=RequestMethod.POST)
-	public ModelAndView save(MultipartFile summaryPath,Product product, RedirectAttributes redirectAttributes){
+	public ModelAndView save(MultipartFile summaryPath, Product product, RedirectAttributes redirectAttributes){
 		
 		String webPath = fileSaver.write("uploaded-images", summaryPath);
-		product.setSummaryPath(webPath);
+	
+		product.setSummary(webPath);
 		productDAO.save(product);
 		redirectAttributes.addFlashAttribute("sucesso", "Produto cadastrado com sucesso");
 		return new ModelAndView("redirect:produtos");
